@@ -1,0 +1,27 @@
+{
+  "name": "vue-cli-plugin-django",
+  "version": "0.1.0",
+  "description": "vue-cli 3 plugin for make you project as Django application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adinvadim/vue-cli-plugin-django.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-cli",
+    "django"
+  ],
+  "bugs": {
+    "url": "https://github.com/adinvadim/vue-cli-plugin-django/issues"
+  },
+  "homepage": "https://github.com/adinvadim/vue-cli-plugin-django#readme",
+  "author": "Vadim Kostin <adin.vadim@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "parse-gitignore": "^0.4.0"
+  }
+}
