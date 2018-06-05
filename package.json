@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-django",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "vue-cli 3 plugin for make you project as Django application",
   "main": "index.js",
   "scripts": {
