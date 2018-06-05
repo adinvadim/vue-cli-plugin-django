@@ -11,9 +11,11 @@ module.exports = (api, options, rootOptions) => {
 
   api.extendPackage({
     vue: {
-      outputDir: 'static'
+      outputDir: 'static',
+      baseUrl: '/static',
     },
   })
+
   api.onCreateComplete(() => {
     const fs = require('fs')
     // Gitignore
