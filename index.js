@@ -14,7 +14,7 @@ module.exports = (api, opts, rootOpts) => {
       } else {
         const pages = Object.keys(multiPageConfig);
         pages.forEach(name => {
-          webpackConfig
+          config
             .plugin(`html-${name}`)
             .tap(args => {
               args[0].filename = api.resolve(`templates/client/${name}.html`);
