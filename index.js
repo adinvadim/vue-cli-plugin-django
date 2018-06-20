@@ -1,14 +1,18 @@
 module.exports = (api, opts, rootOpts) => {
-  const isProd = process.env.NODE_ENV === 'production';
-  const multiPageConfig = opts.pages;
+  const isProd = (process.env.NODE_ENV === "production");
 
-  api.chainWebpack(config => {
-    if(isProd) {
+  if(isProd) {
+    const multiPageConfig = opts.pages;
+    const { path = "client" } = opts.pluginOptions && opts.pluginOptions.djangoPlugin ? opts.pluginOptions.djangoPlugin : {};
+
+    if (typeof path !== "string") throw new Error("Invalid `path` option provided, it must be a string.");
+
+    api.chainWebpack(config => {
       if(!multiPageConfig) {
         config
           .plugin('html')
           .tap(args => {
-            args[0].filename = api.resolve('templates/client/index.html');
+            args[0].filename = api.resolve(`templates/${path}/index.html`);
             return args;
           });
       } else {
@@ -17,11 +21,11 @@ module.exports = (api, opts, rootOpts) => {
           config
             .plugin(`html-${name}`)
             .tap(args => {
-              args[0].filename = api.resolve(`templates/client/${name}.html`);
+              args[0].filename = api.resolve(`templates/${path}/${name}.html`);
               return args;
             });
         })
       }
-    }
-  })
+    });
+  }
 }

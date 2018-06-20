@@ -28,3 +28,15 @@ Navigate to the newly created project folder and add the cli plugin:
 cd my-new-app
 vue add django
 ```
+
+You can specify an output path in your vue.config.js for your templates.
+
+```javascript
+module.exports = {
+    pluginOptions: {
+		djangoPlugin: {
+			path: "your/path"
+		}
+    }
+}
+```
