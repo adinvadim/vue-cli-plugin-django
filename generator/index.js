@@ -7,18 +7,22 @@ module.exports = (api, options, rootOptions) => {
       '/static',
     ])
   */
-  api.render('./templates', { ...options });
-
+  
   api.extendPackage({
-    vue: {
-      outputDir: 'static',
-      baseUrl: '/static',
+    outputDir: 'static',
+    baseUrl: '/static',
+    pluginOptions: {
+      djangoPlugin: {
+        path: options.path,
+      },
     },
-  })
+  });
+
+  api.render('./templates', { options });
 
   api.onCreateComplete(() => {
     const fs = require('fs')
-    // Gitignore
+
     const gitignorePath = api.resolve('./.gitignore')
     const gitignorePatterns = gitignore(gitignorePath);
     let content
@@ -36,7 +40,5 @@ module.exports = (api, options, rootOptions) => {
     }
 
     fs.writeFileSync(gitignorePath, content, { encoding: 'utf8' })
-  })
-
-
+  });
 }
