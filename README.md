@@ -10,7 +10,7 @@
 
 ## Getting started
 
-:warning: Make sure you have vue-cli 3.x.x:
+:warning: Make sure you have vue-cli 3.x.x installed:
 
 ```
 vue --version
