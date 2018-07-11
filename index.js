@@ -5,7 +5,7 @@ module.exports = (api, opts, rootOpts) => {
 
   if(isProd) {
     const { pluginOptions, pages } = opts;
-    let { templatePath = "client/" } = pluginOptions &&
+    let { path: templatePath = "client/" } = pluginOptions &&
     pluginOptions.djangoPlugin ?
     pluginOptions.djangoPlugin : {};
 
@@ -36,4 +36,4 @@ module.exports = (api, opts, rootOpts) => {
       }
     });
   }
-}
+};
