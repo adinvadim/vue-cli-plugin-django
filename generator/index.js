@@ -9,18 +9,21 @@ module.exports = (api, options, rootOptions) => {
       '/static',
     ]);
   */
-  
-  api.extendPackage({ 
-    vue: {
-      outputDir: 'static',
-      baseUrl: '/static',
-      pluginOptions: {
-        djangoPlugin: {
-          path: options.path,
-        },
+
+  const vue = {
+    outputDir: 'static',
+    baseUrl: '/static',
+  };
+
+  if (!/^client\/*$/.test(options.subpath)) {
+    vue.pluginOptions = {
+      djangoPlugin: {
+        subpath: options.subpath,
       },
-    },
-  });
+    };
+  }
+  
+  api.extendPackage({ vue });
 
   api.render('./templates', { options });
 

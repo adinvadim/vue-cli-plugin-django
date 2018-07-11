@@ -10,8 +10,8 @@ module.exports = [
   {
     type: 'input',
     default: 'client/',
-    message: 'Enter your templates path',
-    name: 'path',
+    message: 'Enter your templates subpath:',
+    name: 'subpath',
     filter(input) {
       input = path.normalize(input).replace(/\\/g, '/');
       if (input.slice(-1) !== "/") input += "/";

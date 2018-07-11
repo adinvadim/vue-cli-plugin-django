@@ -29,14 +29,14 @@ cd my-new-app
 vue add django
 ```
 
-You can specify an output path in your vue.config.js for your templates.
+You can specify an output subpath in your vue.config.js for your templates. It defaults to "client/".
 
 ```javascript
 module.exports = {
   pluginOptions: {
     djangoPlugin: {
-      path: "your/path"
-    }
-  }
-}
+      subpath: 'your/subpath/',
+    },
+  },
+};
 ```
